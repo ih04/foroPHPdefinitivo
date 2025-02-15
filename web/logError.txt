@@ -1,0 +1,10 @@
+Class "onectate" not found0.78424200 1739030744
+Call to undefined method Conectate::insert()0.04464700 1739038060
+Call to a member function bindParam() on array0.13389700 1739039615
+Call to a member function bindParam() on array0.71616500 1739039755
+Unsupported operand types: null + string0.25535400 1739040196
+Object of class PDOStatement could not be converted to string0.00400900 1739118170
+Object of class PDOStatement could not be converted to string0.44373000 1739118198
+Call to undefined method Conectate::select()0.22740800 1739121822
+Call to undefined method Conectate::select()0.99766700 1739121877
+Call to undefined method Conectate::select()0.70731300 1739121888

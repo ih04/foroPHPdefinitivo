@@ -30,7 +30,7 @@
 				echo "<tr>";
 					
 					echo "<td>";
-						 echo "<a class='titulo' href='index.php?dir=hilo&idHilo=".$i['id']."'>".$i['titulo']." "."</a>"; 
+						 echo "<a class='titulo fnt2' href='index.php?dir=hilo&idHilo=".$i['id']."'>".$i['titulo']." "."</a>"; 
 					echo "</td>";
 					echo "<td>";
 						 echo "<div class='titulo' >".$i['fecha']." "."</div>"; 
@@ -42,7 +42,7 @@
 						 echo "<div class='titulo'>".$i['user']." "."</div>"; 
 					echo "</td>";
 					echo "<td>";
-						 echo "<b class='titulo'>".$i['mensaje']." </b>"; 
+						 echo "<b class='titulo fnt2'>".$i['mensaje']." </b>"; 
 					echo "</td>";
 						
 				echo "</tr>";

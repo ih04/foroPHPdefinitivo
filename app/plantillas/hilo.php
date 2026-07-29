@@ -1,6 +1,6 @@
 <?php ?>
 		
-	<h1 class="centrar"><?php echo $msjs[0]['titulo']; ?></h1>
+	<h1 class="centrar terclor"><?php echo $msjs[0]['titulo']; ?></h1>
 
 	<?php if(count($msjs)>0): ?>
 
@@ -12,7 +12,7 @@
 						<td class="msjProf">
 							<img src=<?php echo $m['fotoP']; ?>><?php echo $m['usuario']; ?>
 						</td>
-						<td class="msj"><?php echo $m['mensaje']; ?>
+						<td class="msj fnt2 secolor"><?php echo $m['mensaje']; ?>
 						</td>
 					</tr>
 				</table>

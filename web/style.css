@@ -1,7 +1,40 @@
 body{
-	background: #181B20;
-	color: white;
+	background: #1F1B24;
+	color: #00FFAB;
+	color: #FF2E63;
+	color: #08D9D6;
+	color: #F8E71C;
+	color: #FF2E63;
 	margin-left: 10%;
+	font-family: Orbitron;
+}
+
+h1{
+	/* text-align: center; */
+	/* outline: 1px solid red; */
+	width:fit-content;
+	height: fit-content;
+	font-family: Bebas Neue;
+	font-size: 100px;
+	margin:0;
+	padding: 0;
+}
+
+h1 p{
+	width:fit-content;
+	height: fit-content;
+	margin:0;
+	padding: 0;
+	display:inline;
+	/* margin:auto; */
+	/* outline: 1px solid red; */
+	
+}
+
+h1 p:nth-child(2){
+	margin-left: auto;
+	color:#08D9D6;
+
 }
 
 .header{
@@ -10,8 +43,8 @@ body{
 	padding: 0;
 	margin: 0;
 	 text-align: center;
-	 border-top: solid gray 1px;
-	 border-bottom: solid gray 1px;
+	 border-top: solid #08D9D6  1px;
+	 border-bottom: solid #08D9D6  1px;
 }
 .perfilHeader{
 	text-align: right;
@@ -24,6 +57,7 @@ body{
 .boton{
 	color: white;
 	background: black;
+	
 }
 
 .errores{
@@ -38,6 +72,7 @@ body{
 	width: 100%;
 	min-height: 40vh;
 	background: black;
+	border-radius:10px;
 }
 
 
@@ -52,7 +87,8 @@ body{
 	background: black;
 	height: 200px;
 	margin: 30px;
-	
+	border-radius: 10px;
+	padding:10px;
 }
 
 .msj{
@@ -98,10 +134,39 @@ p{
 }
 
 
-a{color: white}
+a{color: #08D9D6;  }
 a:visited{text-decoration: none;}
 a:link{text-decoration: none;}
-a:hover{text-decoration: none;}
+a:hover{text-decoration: none;  }
 a:active{
 	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+.secolor{
+	color: #08D9D6 ;
+}
+.terclor{
+	color: #F8E71C ;
+}
+
+.fnt2{
+	font-family: Roboto;
+}
+
+
+
+.celdas{
+	padding:20px;
+}
+
+.celdas:hover{
+	background-color: #F8E71C;
 }

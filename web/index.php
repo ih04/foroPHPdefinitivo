@@ -2,7 +2,7 @@
 	require_once "../app/Controlador.php";
 	require_once "../app/Modelo.php";
 	
-	//utilizaré el enrutamiento para que me cague todas las páginas desde index!
+	//utilizaré el enrutamiento para que me cargue todas las páginas desde index!
 
 	$fin=array('clase'=>'Controlador','menu'=>'error');
 	session_start();
@@ -30,7 +30,7 @@
 			$fin=$menus[$_GET['dir']];
 		} 
 	}else{
-		$fin=array('clase'=>'Controlador','menu'=>'error');
+		$fin=array('clase'=>'Controlador','menu'=>'inicio');
 	}
 
 	//si exíste método parseado llamamos a método parseado, sino....

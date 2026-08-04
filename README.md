@@ -5,7 +5,7 @@ Se ha utilizado el modelo MVC, por una parte la carpeta web contiene la parte vi
 La parte app contiene lo interesante que es la lógica de la aplicación:
     
     -libs contiene los archivos con todas las funciones que se utilizan (explicaré las menos obvias):
-        ◉ La función cabecera simplemente nos ahorra tener que escribir la cabecera cada vez y nos ahorra lineas de código, es el mismo html que invocamos cada vez que queremos repetir la misma cabecera en cada plantilla php. 
+        ◉ cabecera ◉ simplemente nos ahorra tener que escribir la cabecera cada vez y nos ahorra lineas de código, es el mismo html que invocamos cada vez que queremos repetir la misma cabecera en cada plantilla php. 
         ◉ sinTildes reemplaza las vocales que llevan tilde por sus homólogas sin tilde.
         ◉ sinEspacios recibe cadena y le quita espacios 
         ◉ recoge  puede dejar un espacio entre palabras o ninguno según como elijamos.
@@ -17,19 +17,12 @@ La parte app contiene lo interesante que es la lógica de la aplicación:
         ◉ cTelefono comprueba la cadena del campo telefono para comprobar que toda la cadena sean numeros, empiece pro el codigo del país deseado, y tenda la longitud correcta según el país en caso favorable devolverá true en caso contrario false.
         ◉ cMail en lugar de usar regex se ha utilizado la constante de filtros de phph FILTER_VALIDATE_EMAIL el cual comprobará si nos llega con el formado donde hay un @ en medio y un punto después del arroba.
         ◉ cNum cogerá una cadena que deberá comprobar si es numerica, también sle pasamos las variables min y max para comprobar que la cadena numérica está entre estas 2 variables y devuelve true o false según si cumple
-        ◉ cTexto Por defecto es no sensible a mayúsculas, permite un espacio entre palabras y cadenas de longitud entre 1 y 30 pero si le enviamos las variables min y max podemos cambiar el tamaño de dicho texto.
-        ◉ cTextarea pro defecto entre 300 y 1 caracteres pero si mandamos las variables min y max podemos cambiar eso
-        ◉ cFecha recibe una fecha y un formato, que por defecto será el numero 0, la fecha la divide en 3 caracteres  y los guarda dentro del $arrayFecha divididos por los caracteres"/[\/-]/" del preg_split.. seguidamente comprobamos que nuestro array contenga 3 datos (día, mes y año) y en caso afirmativo entramos en un switchcon 3 posibilidades, 0 1 y 2 esto será el dato que debemso mandar a la función con el caracter $formato ya que las 3 posibilidades alternarán el formato de fecha por dia año mes cambiando estos 3 de sitio dando 3 posibilidades. en caso que el debido formato lo comprobemos con un checkdate si la fecha es correcta y en caso positivo devolvemos true, en cualquier otro caso false.
+        ◉ cTexto y cTextarea comprueban la cantidad de caracteres que tiene el texto recibido
+        ◉ cFecha comprobaráuna si una fecha tiene el debido formato  y si es la fecha corecta
         ◉ cDni comprobamos formato del dni enviado y si coincide con la letra que le corresponde, caso afirmativo devolvemos true.
         ◉ cNie lo mismo versión nie
         ◉ cLetraDni se utiliza en las funciones cDni y cNie para ayudar a comprobar la letra de los datos enviados. devuelve true o false según si la letra coincide o no
-        | Función | Descripción |
-|----------|-------------|
-| sinTildes | Elimina las tildes de una cadena. |
-| sinEspacios | Elimina espacios sobrantes. |
-| recoge | Limpia los datos recibidos desde formularios. |
-| cMail | Valida una dirección de correo electrónico. |
-| cDni | Comprueba el formato y la letra del DNI. |
+        
     -plantillas contiene cada parte de html que se carga según la parte del foro en la que estamos.
     -Controlador.php tiene la función necesaria que se utilizará a la par con la plantilla según el menú/opción/página en la que estemos
     -Modelo contiene la lógica de negocio, las querries que utilizarán las funciones del controlador

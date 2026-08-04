@@ -11,6 +11,7 @@ La parte app contiene lo interesante que es la lógica de la aplicación:
     -Config tiene los datos necesarios para conectarse a la base de datos.
 
 COMO FUNCIONA??: 
+    
     En index.php tenemos el html inicial, este comienza importando el controlador y el modelo para tenerlos a disposición, 
     
     Seguidamente comprobamos si tenemos sesion declarando session_Start() y checando la variable $_SESSION, en caso de que esta por cualquier razón venga vacía le ponemos nivel de usuario 0---> esto influirá en que botones del menú puede o no ver el usuario si está o no registrado. 

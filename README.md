@@ -3,6 +3,7 @@ Esto es un resumen de como funciona el foro, intentaré que sea breve a la vez q
 Se ha utilizado el modelo MVC, por una parte la carpeta web contiene la parte visual + el controlador frontal index.
 
 La parte app contiene lo interesante que es la lógica de la aplicación:
+    
     -libs contiene los archivos con todas las funciones que se utilizan (explicaré las menos obvias):
         ◉ las que dicen "sin" son para quitar tildes y espacios
     -plantillas contiene cada parte de html que se carga según la parte del foro en la que estamos.

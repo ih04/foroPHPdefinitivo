@@ -5,7 +5,25 @@ Se ha utilizado el modelo MVC, por una parte la carpeta web contiene la parte vi
 La parte app contiene lo interesante que es la lógica de la aplicación:
     
     -libs contiene los archivos con todas las funciones que se utilizan (explicaré las menos obvias):
-        ◉ las que dicen "sin" son para quitar tildes y espacios
+        ◉ La función cabecera simplemente nos ahorra tener que escribir la cabecera cada vez y nos ahorra lineas de código, es el mismo html que invocamos cada vez que queremos repetir la misma cabecera en cada plantilla php. 
+        ◉ sinTildes simplemente recibe un string por parámetro y cambia las vocales que vienen con tilde por su homologa sin tilde con un str_replace.
+        ◉ sinEspacios recibe cadena y le quita espacios con trim + preg_replace
+        ◉ recoge  trae una cadena $var y un boleano $espacios el cual si viene false significa que no queremos espacios en n uestra cadena var y a continuación con un strip_tags le indicamos que queremos quitar los espacios del todo o solo dejar un espacio entre palabras involucrando sinEspacios de por medio
+        ◉ recogeCheck se lleva un checkbox y si esta marcado devuelve true sino devuelve false.
+        ◉ recogeRadio trae un $text variable el cual si está seleccionado, se limpian los espacios para devolver el mismo o en caso que no esté seleccionado se devuelve false
+        ◉ moverFoto viene con 3 variables $value que será nombre de foto, $ruta que será la dirección donde va a ir la foto, $err que será la variable donde guardaremos en caso de que salga un error.. con move_uploaded_file el cual le pasaremos un array $_FIELES donde accederemos  a la primera posicion $value y segunda tmp_file (ya que las fotos sin mover son archivos temporales)  y el segundo parametro de la función será la ruta dodne queremos mover dicha foto, en caso de encontrar la foto y moverla a la ruta la función move_uploaded_file nos devolverá true en caso contrario un falsey lo camptaremos con un selse para antes de hacer return false rellenar el array $err con el nombre del error.
+        ◉ cFot básicamente es comprobarFoto, le pasaremos el nombre de la foto, array error, formatos en los que queremos recibir la foto en versión array, separaremos el formato de lka foto en la variable $foto por el caracter "." y cogeremos la segunda parte que es donde va el formato, seguidam3nte con un foreach repasaremos el array de los formatos plausibles que hemos puesto antes y comprobaremos cada uno de ellos  con el formato guardado en la variable $foto[1] primera posición que es donde está guardado el formato, en caso de coincidir alguno la vartiable $valid la ponemos a true y pasamos  a validar el tamaño con $_FILES[$foto][size]si supera 3000 error de tamaño, y si valid no está en true formato invalido.
+        ◉ cGeneral recoge cadena, campo error y regex, comprobamos la cadena con los parametros del regex si está bien devolvemos true en caso contrario apuntamos error y false
+        ◉ cTelefono comprueba la cadena del campo telefono para comprobar que toda la cadena sean numeros, empiece pro el codigo del país deseado, y tenda la longitud correcta según el país en caso favorable devolverá true en caso contrario false.
+        ◉ cMail en lugar de usar regex se ha utilizado la constante de filtros de phph FILTER_VALIDATE_EMAIL el cual comprobará si nos llega con el formado donde hay un @ en medio y un punto después del arroba.
+        ◉ cNum cogerá una cadena que deberá comprobar si es numerica, también sle pasamos las variables min y max para comprobar que la cadena numérica está entre estas 2 variables y devuelve true o false según si cumple
+        ◉ cTexto Por defecto es no sensible a mayúsculas, permite un espacio entre palabras y cadenas de longitud entre 1 y 30 pero si le enviamos las variables min y max podemos cambiar el tamaño de dicho texto.
+        ◉ cTextarea pro defecto entre 300 y 1 caracteres pero si mandamos las variables min y max podemos cambiar eso
+        ◉ cFecha recibe una fecha y un formato, que por defecto será el numero 0, la fecha la divide en 3 caracteres  y los guarda dentro del $arrayFecha divididos por los caracteres"/[\/-]/" del preg_split.. seguidamente comprobamos que nuestro array contenga 3 datos (día, mes y año) y en caso afirmativo entramos en un switchcon 3 posibilidades, 0 1 y 2 esto será el dato que debemso mandar a la función con el caracter $formato ya que las 3 posibilidades alternarán el formato de fecha por dia año mes cambiando estos 3 de sitio dando 3 posibilidades. en caso que el debido formato lo comprobemos con un checkdate si la fecha es correcta y en caso positivo devolvemos true, en cualquier otro caso false.
+        ◉ cDni comprobamos formato del dni enviado y si coincide con la letra que le corresponde, caso afirmativo devolvemos true.
+        ◉ cNie lo mismo versión nie
+        ◉ cLetraDni se utiliza en las funciones cDni y cNie para ayudar a comprobar la letra de los datos enviados. devuelve true o false según si la letra coincide o no
+
     -plantillas contiene cada parte de html que se carga según la parte del foro en la que estamos.
     -Controlador.php tiene la función necesaria que se utilizará a la par con la plantilla según el menú/opción/página en la que estemos
     -Modelo contiene la lógica de negocio, las querries que utilizarán las funciones del controlador
@@ -34,6 +52,7 @@ COMO FUNCIONA??:
     prácticamente este sería el funcionamiento de cualquier menú.
 
 LO ANTERIOR ERA UN EJEMPLO DE COMO FUNCIONA EL APARTADO FORO; PERO Y LAS DEMAS SECCIONES COMO VAN?:
+
     si por ejmplo cargamos el menu foro, este tiene un imput hiloNuevo, si apretamos dicho imput nos llevará al funcion hiloNuevo() del Controlador el cual recogerá en variables $mensaje $titulo  los datos respectivos y comprobará su longitud con los metodos util cTextarea(), si no tuviesen el formato correcto se haría saber en la variable $errores, si $errores es 0 entonces procedemos a declarar la clase Conectate cuyo constructor creará una instancia para conectarse a la base de datos con la info que tenemos en Config.php, crearemos $idusr (auí irá otra variable de sesion), $hora y $fecha y en caso de que el hilo se haya creado y el mensaje se haya insertado en el ULTIMO id de hilo, nos redireccionará al menú hilo de esa id creada.
 
     Algo parecido pasa dentro de cada hilo creado, cada vez que insertamos un mensaje nuevo hay una conexión a la base de datos, una comprobación de mensajes existentes y si el resultado devuelve menos de uno  saldrá en pantalla el else "no hay mensajes todavía" (en caso de no haber ningún hilo creado) 

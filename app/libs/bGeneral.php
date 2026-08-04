@@ -216,7 +216,7 @@ function cTexto(string $text, string $campo, array &$errores, int $max = 30, int
  * 
  * 
 */
-function cTextarea(string $text, string $campo, array &$errores, int $max = 300, int $min = 1)
+function cTextarea(string $text, string $campo,  array &$errores, int $max = 300, int $min = 1)
 {
     if ((mb_strlen($text) >=$min && mb_strlen($text)<=$max)) {
         

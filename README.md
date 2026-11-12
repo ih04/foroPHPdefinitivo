@@ -6,7 +6,7 @@ El proyecto utiliza una organización inspirada en el patrón **MVC (Modelo–Vi
 
 > **Nota sobre el estado del proyecto:** esta documentación describe el código incluido en el repositorio. Algunas funciones están implementadas de forma básica y hay aspectos de seguridad y validación que conviene corregir antes de desplegar la aplicación en Internet.
 
-🚀 Demo
+##🚀 Demo
 https://forodev.infinityfreeapp.com/web/index.php?dir=inicio
 
 ## Índice
